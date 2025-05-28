@@ -1,3 +1,4 @@
+import data.ReceiptRecord;
 import ui.UserInterface;
 
 import static ui.UserInterface.*;
@@ -6,6 +7,10 @@ public class Main {
 
     public static void main (String[] args){
         System.out.println("Welcome to SandWitchCraft!");
-        processHome();
+
+        ReceiptRecord rr = new ReceiptRecord();
+        rr.saveReceipt();
+        UserInterface ui = new UserInterface();
+        ui.processHome();
     }
 }

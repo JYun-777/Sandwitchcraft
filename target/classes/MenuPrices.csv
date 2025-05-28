@@ -1,0 +1,45 @@
+1|Bread|4"|8"|12"
+white|5.50|7.00|8.50
+wheat|5.50|7.00|8.50
+rye|5.50|7.00|8.50
+wrap|5.50|7.00|8.50
+2|Meats|4"|8"|12"
+steak|1.00|2.00|3.00
+ham|1.00|2.00|3.00
+salami|1.00|2.00|3.00
+roast beef|1.00|2.00|3.00
+chicken|1.00|2.00|3.00
+bacon|1.00|2.00|3.00
+3|Extra Meat|4"|8"|12"
+Extra Meat|0.50|1.00|1.50
+4|Cheese|4"|8"|12"
+american|.75|1.50|2.25
+provolone|.75|1.50|2.25
+cheddar|.75|1.50|2.25
+swiss|.75|1.50|2.25
+5|Extra Cheese|4"|8"|12"
+Extra Cheese|0.30|0.60|0.90
+6|Regular Toppings|4"|8"|12"
+lettuce|0|0|0
+peppers|0|0|0
+onions|0|0|0
+tomatoes|0|0|0
+jalapenos|0|0|0
+cucumbers|0|0|0
+pickles|0|0|0
+guacamole|0|0|0
+mushrooms|0|0|0
+7|Sauces|4"|8"|12"
+mayo|0|0|0
+mustard|0|0|0
+ketchup|0|0|0
+ranch|0|0|0
+thousand island|0|0|0
+vinaigrette|0|0|0
+8|Sides|4"|8"|12"
+au jus|0|0|0
+sauce|0|0|0
+9|Drinks|Small|Medium|Large
+Drinks|2.00|2.50|3.00
+10|Chips|Small|Medium|Large
+Chips|1.50|1.50|1.50
