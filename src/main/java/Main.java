@@ -1,3 +1,4 @@
+import data.MenuPriceReader;
 import data.ReceiptRecord;
 import ui.UserInterface;
 
@@ -12,5 +13,6 @@ public class Main {
         rr.saveReceipt();
         UserInterface ui = new UserInterface();
         ui.processHome();
+        MenuPriceReader mpr = new MenuPriceReader();
     }
 }

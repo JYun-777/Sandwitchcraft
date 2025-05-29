@@ -1,3 +1,5 @@
+import data.Ingredient;
+
 import java.util.List;
 
 public class Order {
