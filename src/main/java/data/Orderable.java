@@ -1,8 +1,9 @@
 package data;
 
 public abstract class Orderable {
-    private String name;
-    private String[] prices;
+    protected String name;
+    protected String[] prices;
+
 
     public String getName() {
         return name;

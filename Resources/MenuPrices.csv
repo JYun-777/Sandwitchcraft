@@ -10,15 +10,15 @@ salami|1.00|2.00|3.00
 roast beef|1.00|2.00|3.00
 chicken|1.00|2.00|3.00
 bacon|1.00|2.00|3.00
-C|Extra Meat|4"|8"|12"
-Extra Meat|0.50|1.00|1.50
+C|extra meat|4"|8"|12"
+extra meat|0.50|1.00|1.50
 D|Cheese|4"|8"|12"
 american|.75|1.50|2.25
 provolone|.75|1.50|2.25
 cheddar|.75|1.50|2.25
 swiss|.75|1.50|2.25
-E|Extra Cheese|4"|8"|12"
-Extra Cheese|0.30|0.60|0.90
+E|extra cheese|4"|8"|12"
+extra cheese|0.30|0.60|0.90
 F|Regular Toppings|4"|8"|12"
 lettuce|0|0|0
 peppers|0|0|0
@@ -38,6 +38,7 @@ thousand island|0|0|0
 vinaigrette|0|0|0
 H|Toasted|X|X|X
 toasted|0|0|0
+extra topping|0|0|0
 I|Sides|4"|8"|12"
 au jus|0|0|0
 sauce|0|0|0

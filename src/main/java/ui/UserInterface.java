@@ -1,9 +1,6 @@
 package ui;
 
-import data.Ingredient;
-import data.MenuReader;
-import data.Receipt;
-import data.ReceiptRecord;
+import data.*;
 
 import java.util.List;
 import java.util.Scanner;
@@ -112,30 +109,60 @@ public class UserInterface {
 
         //toppings
         String toppingOption;
-        while(true){
+        while(true) {
             System.out.println("Enter the name of a topping to add it, or enter X to continue to next step:");
             System.out.println("""
-                                 |_____MEATS_____|_____CHEESES_____|_____TOPPINGS_____|_____SAUCES______|______SIDES_____|
-                                 |     steak     |     american    |     lettuce      |      mayo       |     au jus     |
-                                 |      ham      |    provolone    |     peppers      |     mustard     |      sauce     |
-                                 |     salami    |     cheddar     |     onions       |     ketchup     |                |
-                                 |   roast beef  |      swiss      |     tomatoes     |     ranch       |                |
-                                 |    chicken    |                 |     jalapenos    | thousand island |                |
-                                 |     bacon     |                 |     cucumbers    |   vinaigrette   |                |
-                                 |               |                 |      pickles     |                 |                |
-                                 |               |                 |     guacamole    |                 |                |
-                                 |               |                 |     mushrooms    |                 |                |
-                                 """);
+                    |_____MEATS_____|_____CHEESES_____|_____TOPPINGS_____|_____SAUCES______|______SIDES_____|
+                    |     steak     |     american    |     lettuce      |      mayo       |     au jus     |
+                    |      ham      |    provolone    |     peppers      |     mustard     |      sauce     |
+                    |     salami    |     cheddar     |     onions       |     ketchup     |                |
+                    |   roast beef  |      swiss      |     tomatoes     |     ranch       |                |
+                    |    chicken    |                 |     jalapenos    | thousand island |                |
+                    |     bacon     |                 |     cucumbers    |   vinaigrette   |                |
+                    |               |                 |      pickles     |                 |                |
+                    |               |                 |     guacamole    |                 |                |
+                    |               |                 |     mushrooms    |                 |                |
+                    """);
             System.out.print(">>");
 
             toppingOption = read.nextLine();
-
-            if (toppingOption.equalsIgnoreCase("x")){
+            Ingredient toppingChoice = null;
+            if (menuReader.searchMenu(toppingOption) != null) {
+                toppingChoice = (Ingredient) menuReader.searchMenu(toppingOption);
+            }
+            if (toppingOption.equalsIgnoreCase("x")) {
                 break;
-            }else if (menuReader.searchMenu(toppingOption) != null){
+            } else if (toppingChoice != null) {
                 _rec.addToReceipt(menuReader.searchMenu(toppingOption), sandwichSize);
                 System.out.printf("%s added\n", menuReader.searchMenu(toppingOption).getName());
+                //extra toppings
+                toppingPrompt: while (true) {
+                    System.out.println("Would you like extra of this topping? Enter 1 for YES, 2 for NO");
+                    menuOption = read.nextInt();
+                    read.nextLine();
+
+
+                    if (menuOption == 1) {
+                        if (toppingChoice.isPremium()) {
+                            if (toppingChoice instanceof Meat) {
+                                _rec.addToReceipt(menuReader.searchMenu("extra meat"), sandwichSize);
+                            } else if (toppingChoice instanceof Cheese) {
+                                _rec.addToReceipt(menuReader.searchMenu("extra cheese"), sandwichSize);
+                            }
+                            break toppingPrompt;
+                        } else {
+                            _rec.addToReceipt(menuReader.searchMenu("extra topping"), sandwichSize);
+                            break toppingPrompt;
+                        }
+                    } else if (menuOption == 2) {
+                        break toppingPrompt;
+                    } else {
+                        System.out.println("Invalid option.");
+                    }
+
+                }
             }
+
 
         }
 

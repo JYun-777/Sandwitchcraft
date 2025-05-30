@@ -1,0 +1,10 @@
+Item           |Price          
+white          |5.50           
+ham            |1.00           
+extra meat     |0.50           
+toasted        |0.00           
+rye            |8.50           
+salami         |3.00           
+extra meat     |1.50           
+TOTAL:          20.00          
+Saved at 2025-05-30T10:20:20.426206200
