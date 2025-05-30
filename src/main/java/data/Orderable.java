@@ -4,11 +4,6 @@ public abstract class Orderable {
     private String name;
     private String[] prices;
 
-    //selects price based on size
-    public double choosePrice(int sizeIndex){
-        return Double.parseDouble(this.getPrices()[sizeIndex]);
-    }
-
     public String getName() {
         return name;
     }
@@ -17,6 +12,10 @@ public abstract class Orderable {
         this.name = name;
     }
 
+    //selects price based on size
+    public double choosePrice(int sizeIndex){
+        return Double.parseDouble(this.getPrices()[sizeIndex]);
+    }
 
     public String[] getPrices() {
         return prices;

@@ -4,14 +4,15 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
-public class MenuPriceReader {
-    private ArrayList<Ingredient> ingredientList= new ArrayList<>();
+public class MenuReader {
 
-    public MenuPriceReader() {
+    private List<Ingredient> ingredientList= new ArrayList<>();
+
+    public MenuReader() {
         try {
             FileReader fr = new FileReader("Resources/MenuPrices.csv");
             BufferedReader br = new BufferedReader(fr);
@@ -33,12 +34,21 @@ public class MenuPriceReader {
         }
     }
 
-    public void parseFileLine(){
+    public Orderable searchMenu(String _name){
 
+        try {
+            List<Ingredient> match = ingredientList.stream()
+                    .filter( ing -> ing.getName().contains(_name))
+                    .toList();
+
+            return match.getFirst();
+        } catch (Exception e) {
+            System.out.println("Invalid selection, try again");
+            throw new RuntimeException(e);
+        }
     }
 
-    //public String[] readNames(int section){
-
-    //}
-
+    public List<Ingredient> getIngredientList() {
+        return ingredientList;
+    }
 }

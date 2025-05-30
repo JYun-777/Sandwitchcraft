@@ -1,18 +1,14 @@
-import data.MenuPriceReader;
-import data.ReceiptRecord;
+import data.MenuReader;
 import ui.UserInterface;
-
-import static ui.UserInterface.*;
 
 public class Main {
 
     public static void main (String[] args){
         System.out.println("Welcome to SandWitchCraft!");
 
-        ReceiptRecord rr = new ReceiptRecord();
-        rr.saveReceipt();
-        UserInterface ui = new UserInterface();
+        MenuReader mpr = new MenuReader();
+
+        UserInterface ui = new UserInterface(mpr);
         ui.processHome();
-        MenuPriceReader mpr = new MenuPriceReader();
     }
 }
