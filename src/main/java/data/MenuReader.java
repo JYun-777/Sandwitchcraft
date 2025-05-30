@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 public class MenuReader {
 
     private List<Ingredient> ingredientList= new ArrayList<>();
+    private String ingredientType = "Ingredient";
 
     public MenuReader() {
         try {
@@ -22,7 +23,19 @@ public class MenuReader {
 
             while ((dataLine = br.readLine()) != null){
                 dataFields = dataLine.split("\\|");
-                ingredientList.add(new Ingredient(dataFields[0], new String[]{dataFields[1],dataFields[2],dataFields[3]}));
+                if (dataFields[1].equals("Meats")) {
+                    ingredientType = "Meats";
+                }else if (dataFields[1].equals("Cheese")) {
+                    ingredientType = "Cheese";
+                }else if (dataFields[1].equals("Bread")||dataFields[1].equals("Regular Toppings")){
+                    ingredientType = "Ingredient";
+                }
+
+                switch (ingredientType){
+                    case "Meats" -> ingredientList.add(new Meat(dataFields[0], new String[]{dataFields[1],dataFields[2],dataFields[3]}));
+                    case "Cheese" -> ingredientList.add(new Cheese(dataFields[0], new String[]{dataFields[1],dataFields[2],dataFields[3]}));
+                    case "Ingredient" -> ingredientList.add(new Ingredient(dataFields[0], new String[]{dataFields[1],dataFields[2],dataFields[3]}));
+                }
             }
 
         } catch (FileNotFoundException e) {
