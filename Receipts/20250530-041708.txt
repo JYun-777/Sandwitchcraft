@@ -1,0 +1,7 @@
+Item           |Price          
+wheat          |8.50           
+steak          |3.00           
+american       |2.25           
+mayo           |0.00           
+toasted        |0.00           
+TOTAL:          13.75          Saved at 2025-05-30T04:17:08.030821800

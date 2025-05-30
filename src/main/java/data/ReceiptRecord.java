@@ -7,17 +7,28 @@ import java.time.format.DateTimeFormatter;
 
 public class ReceiptRecord {
 
-    private FileWriter fw;
+    private static FileWriter fw;
 
-    public void saveReceipt() {
+    public static void saveReceipt(Receipt _rec) {
 
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter longFormat = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
         String formattedTime = now.format(longFormat);
         try {
+            fw = new FileWriter("Receipts/"+formattedTime+".txt");
 
-            fw = new FileWriter("src/main/Receipts"+"/"+formattedTime+".txt");
-            fw.write("Saved at "+now.toString());
+            _rec.getReceiptEntryList().stream()
+                            .forEach(entry -> {
+                                try {
+                                    fw.write(entry);
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
+                            });
+
+            fw.write("\nSaved at "+now.toString());
+
+
 
             fw.close();
         } catch (IOException e) {

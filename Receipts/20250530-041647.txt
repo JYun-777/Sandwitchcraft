@@ -1,0 +1,4 @@
+Item           |Price          
+Lays           |1.50           
+Fanta          |2.50           
+TOTAL:          4.00           Saved at 2025-05-30T04:16:47.383886600

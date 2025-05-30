@@ -44,7 +44,7 @@ public class MenuReader {
             return match.getFirst();
         } catch (Exception e) {
             System.out.println("Invalid selection, try again");
-            throw new RuntimeException(e);
+            return null;
         }
     }
 
