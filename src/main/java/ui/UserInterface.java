@@ -115,16 +115,16 @@ public class UserInterface {
         while(true){
             System.out.println("Enter the name of a topping to add it, or enter X to continue to next step:");
             System.out.println("""
-                                 _____MEATS_____|_____CHEESES_____|_____TOPPINGS_____|_____SAUCES_____
-                                      steak     |     american    |     lettuce      |      mayo          
-                                       ham      |    provolone    |     peppers      |     mustard               
-                                      salami    |     cheddar     |     onions       |     ketchup              
-                                    roast beef  |      swiss      |     tomatoes     |     ranch 
-                                     chicken    |                 |     jalapenos    | thousand island        
-                                      bacon     |                 |     cucumbers    |   vinaigrette        
-                                                |                 |      pickles     |                  
-                                                |                 |     guacamole    |                  
-                                                |                 |     mushrooms    |                   \n
+                                 |_____MEATS_____|_____CHEESES_____|_____TOPPINGS_____|_____SAUCES______|______SIDES_____|
+                                 |     steak     |     american    |     lettuce      |      mayo       |     au jus     |
+                                 |      ham      |    provolone    |     peppers      |     mustard     |      sauce     |
+                                 |     salami    |     cheddar     |     onions       |     ketchup     |                |
+                                 |   roast beef  |      swiss      |     tomatoes     |     ranch       |                |
+                                 |    chicken    |                 |     jalapenos    | thousand island |                |
+                                 |     bacon     |                 |     cucumbers    |   vinaigrette   |                |
+                                 |               |                 |      pickles     |                 |                |
+                                 |               |                 |     guacamole    |                 |                |
+                                 |               |                 |     mushrooms    |                 |                |
                                  """);
             System.out.print(">>");
 
@@ -148,28 +148,6 @@ public class UserInterface {
                 case 1: _rec.addToReceipt(menuReader.searchMenu("toasted"), sandwichSize);
                 case 2: {
                     break toastPrompt;
-                }
-                default: {
-                    System.out.println("Invalid option.");
-                }
-            }
-        }
-
-        //Sides
-        //toasted
-        sidePrompt: while(true) {
-            System.out.println("Would you like to add a side?\n 1) au jus\n 2)sauce");
-            System.out.print(">>");
-            menuOption = read.nextInt();
-            read.nextLine();
-            switch (menuOption){
-                case 1: {
-                    _rec.addToReceipt(menuReader.searchMenu("au jus"), sandwichSize);
-                    break sidePrompt;
-                }
-                case 2: {
-                    _rec.addToReceipt(menuReader.searchMenu("sauce"), sandwichSize);
-                    break sidePrompt;
                 }
                 default: {
                     System.out.println("Invalid option.");
@@ -242,7 +220,7 @@ public class UserInterface {
     public void processCheckout(Receipt _rec){
         System.out.println("Here is your order:");
         _rec.display();
-        System.out.println("\nPlease confirm if the order is correct. Enter 1 for YES, 2 for NO.");
+        System.out.println("\nPlease confirm if the order is correct. Enter 1 to CONFIRM, 2 to CANCEL.");
         System.out.print(">>");
         menuOption = read.nextInt();
         read.nextLine();
