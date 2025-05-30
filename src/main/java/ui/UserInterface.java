@@ -155,6 +155,28 @@ public class UserInterface {
             }
         }
 
+        //Sides
+        //toasted
+        sidePrompt: while(true) {
+            System.out.println("Would you like to add a side?\n 1) au jus\n 2)sauce");
+            System.out.print(">>");
+            menuOption = read.nextInt();
+            read.nextLine();
+            switch (menuOption){
+                case 1: {
+                    _rec.addToReceipt(menuReader.searchMenu("au jus"), sandwichSize);
+                    break sidePrompt;
+                }
+                case 2: {
+                    _rec.addToReceipt(menuReader.searchMenu("sauce"), sandwichSize);
+                    break sidePrompt;
+                }
+                default: {
+                    System.out.println("Invalid option.");
+                }
+            }
+        }
+
         System.out.println("Sandwich added to order.");
         processOrder(_rec);
     }
